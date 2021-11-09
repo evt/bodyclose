@@ -14,7 +14,7 @@ func main() {
 
 	var step = 0
 
-	for true {
+	for {
 		time.Sleep(time.Microsecond * 100)
 
 		step++
