@@ -8,6 +8,10 @@ import (
 )
 
 func main() {
+	go func() {
+		http.ListenAndServe(":8081", nil)
+	}()
+
 	var step = 0
 
 	for true {
@@ -26,10 +30,6 @@ func main() {
 }
 
 func requestWithClose() error {
-	go func() {
-		http.ListenAndServe(":8081", nil)
-	}()
-
 	resp, err := http.Get("https://www.baidu.com")
 	if err != nil {
 		return fmt.Errorf("http.Get failed: %w", err)
